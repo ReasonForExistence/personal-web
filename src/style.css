@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-tui-bg: #121212;
+  --color-tui-text: #e0e0e0;
+  --color-tui-muted: #777777;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  @apply bg-tui-bg text-tui-text font-mono antialiased overflow-y-scroll;
+}
