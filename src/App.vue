@@ -10,6 +10,8 @@ const handleGlobalKeydown = (e) => {
   
   if (e.key === '1') router.push('/')
   if (e.key === '2') router.push('/projects')
+  if (e.key === '3') router.push('/blog')
+  if (e.key === '4') router.push('/contact')
 }
 
 onMounted(() => {
@@ -29,13 +31,13 @@ onUnmounted(() => {
       <router-view />
     </main>
     
-    <footer class="bg-tui-text text-tui-bg font-bold px-4 py-4 sm:py-1.5 flex flex-col sm:flex-row justify-between items-center text-sm gap-2 sm:gap-0">
-      <div class="flex gap-6 sm:gap-4 w-full sm:w-auto justify-center">
+    <footer class="hidden sm:flex bg-tui-text text-tui-bg font-bold px-4 py-1.5 justify-between items-center text-sm">
+      <div class="flex gap-4">
         <span>[1-4] Navigate</span>
         <span>[&uarr;&darr;] Scroll</span>
         <span>[ENTER] Select</span>
       </div>
-      <div class="w-full sm:w-auto text-center mt-2 sm:mt-0">
+      <div>
         <span>&copy;26 agasenka_</span>
       </div>
     </footer>
