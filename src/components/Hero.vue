@@ -1,16 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const eqState = ref('▃▄▅█▆▄▃▂')
-const progressSeconds = ref(0)
-const totalSeconds = 269
-
-const rainState = ref([
-  '        ',
-  '        ',
-  '        ',
-  '        '
-])
+import { eqState, progressSeconds, totalSeconds, rainState } from '../composables/useMusic'
 
 const formatTime = (secs) => {
   const m = Math.floor(secs / 60)
@@ -24,43 +13,6 @@ const generateProgressString = (current, total, length) => {
   const empty = Math.max(0, length - filled)
   return `[${'█'.repeat(filled)}${'-'.repeat(empty)}]`
 }
-
-let eqInterval
-let timeInterval
-let rainInterval
-
-onMounted(() => {
-  const chars = [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█']
-  const rainChars = [' ', ' ', ' ', ' ', '|', '.', ',']
-  
-  eqInterval = setInterval(() => {
-    let bars = ''
-    for(let i = 0; i < 8; i++) {
-      bars += chars[Math.floor(Math.random() * chars.length)]
-    }
-    eqState.value = bars
-  }, 150)
-
-  rainInterval = setInterval(() => {
-    let newRow = ''
-    for(let i = 0; i < 8; i++) {
-      newRow += rainChars[Math.floor(Math.random() * rainChars.length)]
-    }
-    rainState.value = [newRow, rainState.value[0], rainState.value[1], rainState.value[2]]
-  }, 200)
-
-  timeInterval = setInterval(() => {
-    if (progressSeconds.value < totalSeconds) {
-      progressSeconds.value++
-    }
-  }, 1000)
-})
-
-onUnmounted(() => {
-  clearInterval(eqInterval)
-  clearInterval(timeInterval)
-  clearInterval(rainInterval)
-})
 </script>
 
 <template>

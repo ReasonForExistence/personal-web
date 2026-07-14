@@ -2,22 +2,21 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const contacts = [
-  { name: 'EMAIL', href: 'mailto:hello@agasenka.dev', value: 'hello@agasenka.dev' },
-  { name: 'GITHUB', href: 'https://github.com/agasenka', value: 'github.com/agasenka', target: '_blank' },
-  { name: 'X / TWITTER', href: '#', value: '@agasenka_' }
+  { name: 'INSTAGRAM', href: 'https://instagram.com/agasenka_', value: '@agasenka_', target: '_blank' },
+  { name: 'GITHUB', href: 'https://github.com/agasenka', value: 'github.com/agasenka', target: '_blank' }
 ]
 
 const selectedIndex = ref(0)
 
 const handleKeydown = (e) => {
   if (e.key === 'ArrowDown' || e.key === 'j') {
-    e.preventDefault()
+    if (e.preventDefault) e.preventDefault()
     if (selectedIndex.value < contacts.length - 1) selectedIndex.value++
   } else if (e.key === 'ArrowUp' || e.key === 'k') {
-    e.preventDefault()
+    if (e.preventDefault) e.preventDefault()
     if (selectedIndex.value > 0) selectedIndex.value--
   } else if (e.key === 'Enter') {
-    e.preventDefault()
+    if (e.preventDefault) e.preventDefault()
     const contact = contacts[selectedIndex.value]
     if (contact.target === '_blank') {
       window.open(contact.href, '_blank')
@@ -49,6 +48,7 @@ onUnmounted(() => {
            :href="contact.href"
            :target="contact.target"
            @mouseover="selectedIndex = index"
+           @click.prevent="selectedIndex = index; handleKeydown({key: 'Enter'})"
            :class="['group border border-tui-text p-4 transition-colors flex items-center justify-between',
                     selectedIndex === index ? 'bg-tui-text text-tui-bg' : 'hover:bg-tui-text hover:text-tui-bg']">
           <div>

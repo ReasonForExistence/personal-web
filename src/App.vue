@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+import { startMusicEngine } from './composables/useMusic'
 
 const router = useRouter()
 
@@ -15,6 +16,7 @@ const handleGlobalKeydown = (e) => {
 }
 
 onMounted(() => {
+  startMusicEngine()
   window.addEventListener('keydown', handleGlobalKeydown)
 })
 
