@@ -38,6 +38,8 @@ export const startMusicEngine = () => {
   setInterval(() => {
     if (progressSeconds.value < totalSeconds) {
       progressSeconds.value++
+    } else {
+      progressSeconds.value = 0
     }
   }, 1000)
 }
