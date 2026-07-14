@@ -225,4 +225,19 @@ const renderedMarkdown = computed(() => {
 .markdown-body li { 
   margin-bottom: 0.25rem; 
 }
+.markdown-body blockquote {
+  border-left: 2px solid var(--color-tui-muted);
+  padding-left: 1rem;
+  color: var(--color-tui-muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.markdown-body a {
+  color: #60a5fa;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.markdown-body a:hover {
+  color: #93c5fd;
+}
 </style>
