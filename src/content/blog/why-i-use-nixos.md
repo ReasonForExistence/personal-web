@@ -1,5 +1,5 @@
 ---
-date: Jul 14 10:45
+date: Jul 14 2026 15:47
 ---
 
 # Kenapa Aku Pakai NixOS?
