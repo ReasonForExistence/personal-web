@@ -46,7 +46,7 @@ const allFiles = Object.keys(mdFiles).map(path => {
   
   return {
     permissions: '-rw-r--r--',
-    owner: 'agasenka',
+    owner: 'ReasonForExistence',
     size,
     rawSizeBytes,
     date,
@@ -73,7 +73,7 @@ const currentEntries = computed(() => {
       type: 'dir',
       name: '..',
       permissions: 'drwxr-xr-x',
-      owner: 'agasenka',
+      owner: 'ReasonForExistence',
       size: '4.0K',
       date: 'System'
     })
@@ -108,7 +108,7 @@ const currentEntries = computed(() => {
             type: 'dir',
             name: dirName,
             permissions: 'drwxr-xr-x',
-            owner: 'agasenka',
+            owner: 'ReasonForExistence',
             rawSizeBytes: 0,
             date: 'System' // Or you could use the most recent file's date here
           })
@@ -209,7 +209,7 @@ const renderedMarkdown = computed(() => {
           <div :class="['flex gap-2 md:gap-4 px-2 py-1 transition-colors', currentDir.length === 0 ? 'mb-0' : 'mb-4']">
             <span class="w-24 text-tui-muted hidden md:inline-block">drwxr-xr-x</span>
             <span class="w-4 text-tui-muted hidden md:inline-block">2</span>
-            <span class="w-16 text-tui-muted hidden md:inline-block">agasenka</span>
+            <span class="w-48 text-tui-muted hidden md:inline-block">ReasonForExistence</span>
             <span class="w-16 text-tui-muted hidden md:inline-block">users</span>
             <span class="w-10 text-right text-tui-muted">4.0K</span>
             <span class="w-12 sm:w-24 text-tui-muted">System</span>
@@ -219,7 +219,7 @@ const renderedMarkdown = computed(() => {
           <div v-if="currentDir.length === 0" class="flex gap-2 md:gap-4 px-2 py-1 transition-colors mb-4">
             <span class="w-24 text-tui-muted hidden md:inline-block">drwxr-xr-x</span>
             <span class="w-4 text-tui-muted hidden md:inline-block">5</span>
-            <span class="w-16 text-tui-muted hidden md:inline-block">agasenka</span>
+            <span class="w-48 text-tui-muted hidden md:inline-block">ReasonForExistence</span>
             <span class="w-16 text-tui-muted hidden md:inline-block">users</span>
             <span class="w-10 text-right text-tui-muted">4.0K</span>
             <span class="w-12 sm:w-24 text-tui-muted">System</span>
@@ -236,7 +236,7 @@ const renderedMarkdown = computed(() => {
             
             <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-24 hidden md:inline-block']">{{ entry.permissions }}</span>
             <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-4 hidden md:inline-block']">{{ entry.type === 'dir' ? '2' : '1' }}</span>
-            <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-16 hidden md:inline-block']">{{ entry.owner }}</span>
+            <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-48 hidden md:inline-block']">{{ entry.owner }}</span>
             <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-16 hidden md:inline-block']">users</span>
             <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-10 text-right shrink-0']">{{ entry.size }}</span>
             <span :class="[selectedIndex === index ? 'text-tui-bg' : 'text-tui-muted', 'w-32 sm:w-40 shrink-0']">{{ entry.date.replace(' 2026', '') }}</span>
