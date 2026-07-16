@@ -1,7 +1,7 @@
 <template>
   <header class="bg-tui-text text-tui-bg font-bold px-0 sm:px-4 flex flex-col sm:flex-row justify-between items-center text-sm sm:text-base border-b-4 border-tui-muted sm:border-none">
-    <div class="w-full sm:w-auto text-center sm:text-left py-4 sm:py-1.5 bg-tui-text text-tui-bg">
-      <span class="tracking-widest font-extrabold text-lg sm:text-base">AGASENKA_</span>
+    <div class="w-full sm:w-auto text-center sm:text-left py-4 sm:py-1.5 bg-tui-text text-tui-bg max-w-full overflow-hidden">
+      <span class="tracking-widest font-extrabold text-lg sm:text-base truncate block sm:inline px-4 sm:px-0">REASONFOREXISTENCE_</span>
     </div>
     
     <nav class="flex flex-wrap w-full sm:w-auto">

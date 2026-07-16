@@ -22,7 +22,7 @@ const generateProgressString = (current, total, length) => {
     </div>
     
     <div class="pl-4 border-l-2 border-tui-muted mb-8">
-      <p class="text-xl sm:text-2xl font-bold mb-2">Hello. I am agasenka_.</p>
+      <p class="text-xl sm:text-2xl font-bold mb-2">Hello. I am ReasonForExistence</p>
       <p class="text-tui-muted">> Yet another NixOS user & Software Engineer.</p>
     </div>
 
@@ -72,33 +72,31 @@ const generateProgressString = (current, total, length) => {
         </div>
         <span class="text-xs text-tui-muted animate-pulse">[PLAYING]</span>
       </div>
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-4 sm:gap-6">
         <div class="hidden sm:block text-tui-muted text-[10px] leading-tight font-mono whitespace-pre w-10 text-center">{{ rainState.join('\n') }}</div>
-        <div class="flex-1 font-mono text-sm">
-          <div class="mb-1 flex flex-row items-center justify-between">
-            <div class="truncate pr-2">
-              <span class="text-tui-muted w-16 inline-block">TITLE :</span>
+        <div class="flex-1 font-mono text-sm min-w-0">
+          <div class="mb-1 flex flex-row items-center justify-between min-w-0">
+            <div class="flex items-center min-w-0 flex-1 pr-2">
+              <span class="text-tui-muted w-14 sm:w-16 shrink-0">TITLE :</span>
               <span class="font-bold text-tui-text truncate">Ame to Kapuchino (雨とカプチーノ)</span>
             </div>
-            <span class="text-tui-text font-bold text-xs tracking-widest hidden sm:inline-block">{{ eqState }}</span>
+            <span class="text-tui-text font-bold text-xs tracking-widest hidden sm:inline-block shrink-0">{{ eqState }}</span>
           </div>
-          <div class="mb-3 flex justify-between items-center">
-            <div>
-              <span class="text-tui-muted w-16 inline-block">ARTIST:</span>
-              <span class="text-tui-text">Yorushika (ヨルシカ)</span>
+          <div class="mb-3 flex justify-between items-center min-w-0">
+            <div class="flex items-center min-w-0 flex-1 pr-2">
+              <span class="text-tui-muted w-14 sm:w-16 shrink-0">ARTIST:</span>
+              <span class="text-tui-text truncate">Yorushika (ヨルシカ)</span>
             </div>
-            <span class="text-tui-text font-bold text-xs tracking-widest sm:hidden">{{ eqState }}</span>
+            <span class="text-tui-text font-bold text-xs tracking-widest sm:hidden shrink-0">{{ eqState }}</span>
           </div>
           
-          <div class="flex items-center gap-3">
-            <span class="text-tui-muted text-xs">{{ formatTime(progressSeconds) }}</span>
-            <div class="flex-1 text-tui-text tracking-widest text-xs hidden sm:block">
-              {{ generateProgressString(progressSeconds, totalSeconds, 28) }}
+          <div class="flex items-center gap-2 sm:gap-3">
+            <span class="text-tui-muted text-xs shrink-0">{{ formatTime(progressSeconds) }}</span>
+            <div class="flex-1 text-tui-text tracking-widest text-xs overflow-hidden text-center whitespace-nowrap">
+              <span class="hidden sm:inline">{{ generateProgressString(progressSeconds, totalSeconds, 28) }}</span>
+              <span class="sm:hidden">{{ generateProgressString(progressSeconds, totalSeconds, 12) }}</span>
             </div>
-            <div class="flex-1 text-tui-text tracking-widest text-xs sm:hidden">
-              {{ generateProgressString(progressSeconds, totalSeconds, 12) }}
-            </div>
-            <span class="text-tui-muted text-xs">{{ formatTime(totalSeconds) }}</span>
+            <span class="text-tui-muted text-xs shrink-0">{{ formatTime(totalSeconds) }}</span>
           </div>
         </div>
       </div>

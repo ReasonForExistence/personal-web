@@ -40,7 +40,7 @@ onUnmounted(() => {
         <span>[ENTER] Select</span>
       </div>
       <div>
-        <span>&copy;26 agasenka_</span>
+        <span>&copy;26 ReasonForExistence_</span>
       </div>
     </footer>
   </div>

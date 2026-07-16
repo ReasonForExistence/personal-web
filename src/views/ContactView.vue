@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const contacts = [
   { name: 'INSTAGRAM', href: 'https://instagram.com/agasenka_', value: '@agasenka_', target: '_blank' },
-  { name: 'GITHUB', href: 'https://github.com/agasenka', value: 'github.com/agasenka', target: '_blank' }
+  { name: 'GITHUB', href: 'https://github.com/ReasonForExistence', value: 'github.com/ReasonForExistence', target: '_blank' }
 ]
 
 const selectedIndex = ref(0)
