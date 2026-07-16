@@ -202,10 +202,10 @@ const renderedMarkdown = computed(() => {
         <span class="text-tui-muted font-bold mr-2">$&gt;</span><span class="text-xl font-bold">ls -lh {{ currentPathString }}</span>
       </div>
       
-      <div class="text-sm border border-tui-text p-4 md:p-6">
+      <div class="text-sm border border-tui-text p-4 md:p-6 overflow-x-auto">
         <div class="text-tui-muted mb-4 font-bold">total {{ currentEntries.length }} entries</div>
         
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full min-w-max">
           <div :class="['flex gap-2 md:gap-4 px-2 py-1 transition-colors', currentDir.length === 0 ? 'mb-0' : 'mb-4']">
             <span class="w-24 text-tui-muted hidden md:inline-block">drwxr-xr-x</span>
             <span class="w-4 text-tui-muted hidden md:inline-block">2</span>
@@ -245,32 +245,27 @@ const renderedMarkdown = computed(() => {
         </div>
       </div>
       
-      <div class="mt-4 text-tui-muted text-xs flex gap-4">
-        <span><span class="bg-tui-text text-tui-bg px-2 py-1 mr-2 font-bold">[ENTER]</span> OPEN</span>
-        <span v-if="currentDir.length > 0"><span class="bg-tui-text text-tui-bg px-2 py-1 mr-2 font-bold">[BACKSPACE]</span> GO BACK</span>
+      <div class="mt-4 text-tui-muted text-xs flex flex-wrap gap-4">
+        <span class="cursor-pointer hover:text-white transition-colors" @click="currentEntries.length > 0 && handleKeydown({key: 'Enter', preventDefault: () => {}})"><span class="bg-tui-text text-tui-bg px-2 py-1 mr-2 font-bold">[ENTER]</span> OPEN</span>
+        <span v-if="currentDir.length > 0" class="cursor-pointer hover:text-white transition-colors" @click="handleKeydown({key: 'Backspace', preventDefault: () => {}})"><span class="bg-tui-text text-tui-bg px-2 py-1 mr-2 font-bold">[BACKSPACE]</span> GO BACK</span>
       </div>
     </div>
 
-    <div v-else>
-      <div class="mb-4 flex items-center justify-between border-b-2 border-tui-text pb-2">
-        <div>
-          <span class="text-tui-muted font-bold mr-2">$&gt;</span><span class="font-bold">less {{ currentPathString }}/{{ readingPost.name }}</span>
-        </div>
-        <div class="flex gap-2">
-          <button v-if="readingPost.hasTranslation" @click="activeLang = activeLang === 'ID' ? 'EN' : 'ID'" class="bg-tui-text text-tui-bg px-3 py-1 text-xs font-bold hover:bg-white transition-colors">
-            [T] LANG: {{ activeLang }}
-          </button>
-          <button @click="readingPost = null" class="bg-tui-text text-tui-bg px-3 py-1 text-xs font-bold hover:bg-white transition-colors">
-            [Q] QUIT
-          </button>
-        </div>
+    <div v-else class="pb-12">
+      <div class="mb-4 flex items-center border-b-2 border-tui-text pb-2">
+        <span class="text-tui-muted font-bold mr-2">$&gt;</span>
+        <span class="font-bold text-tui-muted hidden sm:inline">less {{ currentPathString }}/</span>
+        <span class="font-bold truncate">{{ readingPost.name }}</span>
       </div>
       
       <div class="border border-tui-text p-3 sm:p-6 bg-[#0a0a0a] markdown-body overflow-x-auto" v-html="renderedMarkdown"></div>
       
-      <div class="mt-4 flex justify-between text-xs text-tui-muted bg-tui-text text-tui-bg p-1 font-bold">
-        <span>{{ readingPost.name }} (END)</span>
-        <span>Press [Q] to quit</span>
+      <div class="fixed bottom-0 left-0 w-full bg-tui-text text-tui-bg text-xs font-bold p-2 px-4 flex justify-between items-center z-50">
+        <span class="truncate pr-4">{{ readingPost.name }} (END)</span>
+        <div class="flex gap-4 shrink-0">
+          <span v-if="readingPost.hasTranslation" @click="activeLang = activeLang === 'ID' ? 'EN' : 'ID'" class="cursor-pointer hover:text-tui-muted transition-colors">[T] LANG: {{ activeLang }}</span>
+          <span @click="readingPost = null" class="cursor-pointer hover:text-tui-muted transition-colors">[Q] QUIT</span>
+        </div>
       </div>
     </div>
     
