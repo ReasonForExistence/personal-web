@@ -11,8 +11,8 @@
       <router-link to="/projects" class="w-1/2 sm:w-auto text-center px-2 py-4 sm:py-1.5 hover:bg-tui-bg hover:text-tui-text transition-colors border-t border-gray-700 sm:border-none" active-class="bg-tui-bg text-tui-text">
         [2] WORK
       </router-link>
-      <router-link to="/blog" class="w-1/2 sm:w-auto text-center px-2 py-4 sm:py-1.5 hover:bg-tui-bg hover:text-tui-text transition-colors border-t border-r border-gray-700 sm:border-none" active-class="bg-tui-bg text-tui-text">
-        [3] BLOG
+      <router-link to="/risalah" class="w-1/2 sm:w-auto text-center px-2 py-4 sm:py-1.5 hover:bg-tui-bg hover:text-tui-text transition-colors border-t border-r border-gray-700 sm:border-none" active-class="bg-tui-bg text-tui-text">
+        [3] RISALAH
       </router-link>
       <router-link to="/contact" class="w-1/2 sm:w-auto text-center px-2 py-4 sm:py-1.5 hover:bg-tui-bg hover:text-tui-text transition-colors border-t border-gray-700 sm:border-none" active-class="bg-tui-bg text-tui-text">
         [4] CONTACT

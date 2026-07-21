@@ -11,7 +11,7 @@ const handleGlobalKeydown = (e) => {
   
   if (e.key === '1') router.push('/')
   if (e.key === '2') router.push('/projects')
-  if (e.key === '3') router.push('/blog')
+  if (e.key === '3') router.push('/risalah')
   if (e.key === '4') router.push('/contact')
 }
 

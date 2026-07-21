@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { marked } from 'marked'
 
-const mdFiles = import.meta.glob('../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true })
+const mdFiles = import.meta.glob('../content/risalah/**/*.md', { query: '?raw', import: 'default', eager: true })
 
 const formatSize = (bytes) => {
   if (bytes < 1024) return bytes + 'B'
@@ -40,7 +40,7 @@ const parseFrontmatter = (content) => {
 const allFiles = Object.keys(mdFiles).map(path => {
   const rawContent = mdFiles[path]
   const { date, contentID, contentEN, hasTranslation } = parseFrontmatter(rawContent)
-  const relativePath = path.replace('../content/blog/', '')
+  const relativePath = path.replace('../content/risalah/', '')
   const rawSizeBytes = new Blob([rawContent]).size
   const size = formatSize(rawSizeBytes)
   
