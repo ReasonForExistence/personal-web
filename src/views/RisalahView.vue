@@ -136,8 +136,8 @@ const currentEntries = computed(() => {
 })
 
 const currentPathString = computed(() => {
-  if (currentDir.value.length === 0) return '~/blog'
-  return `~/blog/${currentDir.value.join('/')}`
+  if (currentDir.value.length === 0) return '~/risalah'
+  return `~/risalah/${currentDir.value.join('/')}`
 })
 
 const handleKeydown = (e) => {
